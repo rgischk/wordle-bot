@@ -35,7 +35,7 @@ export async function autoplayCli(wordlist: PathLike, validationWordlist: PathLi
 
     writeStats(stats)
 
-    while (endless || stats.gamesPlayed >= count) {
+    while (endless || stats.gamesPlayed < count) {
         if (ordered && endless && quitOnEnd && stats.gamesPlayed >= words.length) {
             break
         }

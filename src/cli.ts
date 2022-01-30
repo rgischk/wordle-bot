@@ -170,7 +170,7 @@ program
         "Log details while executing the command."
     )
     .action((options) => {
-        return autoplayCli(options.wordlist, options.validationWordlist, options.count, options.words, options.validationWords, options.forceWord, options.ordered, options.endless, options.quitOnEnd, options.sleep, options.debug)
+        return autoplayCli(options.wordlist, options.validationWordlist, parseInt(options.count), options.words, options.validationWords, options.forceWord, options.ordered, options.endless, options.quitOnEnd, options.sleep, options.debug)
     })
 
 program
