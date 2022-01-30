@@ -69,3 +69,15 @@ But I am not interested in that, as I said before its mostly about the fun to wr
 
 I picked typescript to write the bot, simply because that is what I am currently using at work.
 It is probably not the best choice to write command line interfaces, but also not the worst.
+
+## Twitter integration
+
+The twitter integration uses environment variables for the twitter API keys.
+You can place an ".env"-file in the projects root directory containing the following variables:
+
+* `WORDLE_BOT_API_KEY`
+* `WORDLE_BOT_API_KEY_SECRET`
+* `WORDLE_BOT_ACCESS_TOKEN`
+* `WORDLE_BOT_ACCESS_TOKEN_SECRET`
+
+To obtain these keys, you need to create a twitter developer account and create the keys with write access.
