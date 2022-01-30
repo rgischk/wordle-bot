@@ -24,7 +24,7 @@ export async function wordleGameCli(wordlist: PathLike, validationWordlist: Path
         validationWords = await readWordList(validationWordlist)
     }
 
-    if (forcedWord && !words.includes(forcedWord)) {
+    if (forcedWord && !words.includes(forcedWord.toLowerCase())) {
         console.log("The forced word is not in the wordlist!")
         return
     }

@@ -17,6 +17,8 @@ export class WordleGame {
     }
 
     guess(guess: string): GuessResult {
+        guess = guess.toLowerCase()
+
         if (this.guesses.includes(this.word)) {
             throw new WordleError("You already won, no point in keeping to guess!")
         }
