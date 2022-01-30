@@ -3,12 +3,13 @@ import {question} from "./utils/readlineUtils";
 import {GameStatus, GuessResult, MAX_AMOUNT_GUESSES, WORD_LENGTH, WordleError, WordleGame} from "./WordleGame";
 import {PathLike} from "fs";
 import {readWordList} from "./utils/wordlistUtils";
+import {determineWordOfTheDay} from "./utils/wordOfTheDayUtil";
 
-export async function wordleGameCli(wordlist: PathLike, validationWordlist: PathLike, count: number, words?: string[], validationWords?: string[], forcedWord?: string, ordered?: boolean, endless?: boolean, debug?: boolean) {
+export async function wordleGameCli(wordlist: PathLike, validationWordlist: PathLike, count: number, words?: string[], validationWords?: string[], forcedWord?: string, wordOfTheDay?: boolean, ordered?: boolean, endless?: boolean, debug?: boolean) {
     console.log("")
     console.log("### Running Wordle Game...")
     if (debug) {
-        console.log({words, validationWords, wordlist, validationWordlist, count, forcedWord, ordered, endless, debug})
+        console.log({words, validationWords, wordlist, validationWordlist, count, forcedWord, wordOfTheDay, ordered, endless, debug})
     }
     console.log("Result explanation:")
     console.log("    0 = Character not included in word")
@@ -40,6 +41,10 @@ export async function wordleGameCli(wordlist: PathLike, validationWordlist: Path
 
         if (ordered) {
             forcedWord = words[gamesPlayed % words.length]
+        }
+
+        if (wordOfTheDay) {
+            forcedWord = determineWordOfTheDay(new Date(), words)
         }
 
         const game = new WordleGame(words, validationWords, forcedWord)

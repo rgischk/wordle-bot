@@ -7,6 +7,7 @@ The following commands are available by calling the `cli` yarn script:
 * `help` - Display a help message.
 * `play` - Starts an interactive game of Wordle.
 * `solve` - Starts an interactive solver bot for Wordle.
+* `spoil` - Spoils you by telling you the Wordle word of the day.
 * `autoplay` - Automatically plays a game of Wordle.
 
 Each of the commands supports a variety of different options.
@@ -70,6 +71,5 @@ It is probably not the best choice to write command line interfaces, but also no
 
 ## Future additions
 
-I am thinking about reverse engineering the algorithm for the "word of the day" and implement an option in the `WordleGame` to play it.
-I might also add twitter integration to automatically tweet the bots result every day (as so many other people have done).
+I might add twitter integration to automatically tweet the bots result every day (as so many other people have done).
 It would probably also be neat to generate the "copy & paste"-ready output containing the result of your game, as the original does.
