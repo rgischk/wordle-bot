@@ -1,10 +1,11 @@
 import {Guess, GuessResult, WordleGame} from "./WordleGame";
+import {readWordList} from "./utils/wordlistUtils";
 
 describe("WordleGame", () => {
     test("sores for solar returns 22100", async () => {
-        const game = new WordleGame()
-        await game.start()
-        game.word = "solar"
+        const wordlist = await readWordList("./wordlists/short.txt")
+        const validationWordlist = await readWordList("./wordlists/long.txt")
+        const game = new WordleGame(wordlist, validationWordlist, "solar")
 
         const guessResult = game.guess("sores")
 
