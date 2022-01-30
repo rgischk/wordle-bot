@@ -48,7 +48,7 @@ Failed words:  joker, boxer, wound, right, baste, batch, stash, hound, vaunt, wi
 Last game:
     Word:    shave
     Guesses: slate, share, shake, shame, shade, shape
-    Game won!
+    Bot lost!
 Done in 12.36s.
 ```
 
