@@ -34,22 +34,22 @@ By lettings the bot solve all words from the original wordlist (with the command
 ```
 ### Running Wordle Autoplay...
 
-   Games played:             2315/infinite
-Bot wins/losses:             2302/13               -  99%/1%
+   Games played: 2315/2315
+Bot wins/losses: 2302/13   -  99%/1%
 Win distribution:
-    1st try:                    1
-    2nd try:                  146
-    3rd try:                  872
-    4th try:                  982
-    5th try:                  255
-    6th try:                   46
-    failed:                    13
+    1st try:        1
+    2nd try:      146
+    3rd try:      872
+    4th try:      982
+    5th try:      255
+    6th try:       46
+    failed:        13
 Failed words:  joker, boxer, wound, right, baste, batch, stash, hound, vaunt, willy, match, catty, shave
 Last game:
     Word:    shave
     Guesses: slate, share, shake, shame, shade, shape
     Bot lost!
-Done in 12.36s.
+Done in 11.94s.
 ```
 
 As you can see, bot has a 99% win rate.

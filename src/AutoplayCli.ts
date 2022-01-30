@@ -25,7 +25,7 @@ export async function autoplayCli(wordlist: PathLike, validationWordlist: PathLi
 
     const stats: Stats = {
         gamesPlayed: 0,
-        totalGames: endless ? undefined : count,
+        totalGames: (ordered && endless && quitOnEnd) ? words.length : endless ? undefined : count,
         botWins: 0,
         gameWins: 0,
         winDistribution: initializeWindDistribution(),
