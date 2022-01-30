@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { Command } from "commander"
 import {WORD_LENGTH} from "./WordleGame";
 import {wordleBotCli} from "./WordleBotCli";
@@ -5,6 +6,7 @@ import {wordleGameCli} from "./WordleGameCli";
 import {autoplayCli} from "./AutoplayCli";
 import {sortWordlist} from "./utils/wordlistUtils";
 import {wordOfTheDayCli} from "./WordOfTheDayCli";
+import {twitterCli} from "./TwitterCli";
 
 const program = new Command();
 
@@ -171,6 +173,18 @@ program
     )
     .action((options) => {
         return autoplayCli(options.wordlist, options.validationWordlist, parseInt(options.count), options.words, options.validationWords, options.forceWord, options.ordered, options.endless, options.quitOnEnd, options.sleep, options.debug)
+    })
+
+program
+    .command("tweet")
+    .alias("t")
+    .description("Plays the word of the day and tweets the result.")
+    .option(
+        "-d, --debug",
+        "Log details while executing the command."
+    )
+    .action((options) => {
+        return twitterCli(options.debug)
     })
 
 program

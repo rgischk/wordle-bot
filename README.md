@@ -9,6 +9,7 @@ The following commands are available by calling the `cli` yarn script:
 * `solve` - Starts an interactive solver bot for Wordle.
 * `spoil` - Spoils you by telling you the Wordle word of the day.
 * `autoplay` - Automatically plays a game of Wordle.
+* `tweet` - Plays the word of the day and [tweets the result](https://twitter.com/WordleBot__).
 
 Each of the commands supports a variety of different options.
 You can use the `help` command for more details.
@@ -68,8 +69,3 @@ But I am not interested in that, as I said before its mostly about the fun to wr
 
 I picked typescript to write the bot, simply because that is what I am currently using at work.
 It is probably not the best choice to write command line interfaces, but also not the worst.
-
-## Future additions
-
-I might add twitter integration to automatically tweet the bots result every day (as so many other people have done).
-It would probably also be neat to generate the "copy & paste"-ready output containing the result of your game, as the original does.

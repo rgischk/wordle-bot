@@ -1041,6 +1041,11 @@ domexception@^2.0.1:
   dependencies:
     webidl-conversions "^5.0.0"
 
+dotenv@^14.3.2:
+  version "14.3.2"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-14.3.2.tgz#7c30b3a5f777c79a3429cb2db358eef6751e8369"
+  integrity sha512-vwEppIphpFdvaMCaHfCEv9IgwcxMljMw2TnAQBB4VWPvzXQLTb82jwmdOKzlEVUL3gNFT4l4TPKO+Bn+sqcrVQ==
+
 electron-to-chromium@^1.4.17:
   version "1.4.46"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.46.tgz#c88a6fedc766589826db0481602a888864ade1ca"
@@ -2418,6 +2423,11 @@ ts-node@^10.4.0:
     diff "^4.0.1"
     make-error "^1.1.1"
     yn "3.1.1"
+
+twitter-api-v2@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/twitter-api-v2/-/twitter-api-v2-1.10.0.tgz#0773f5b3c194a1cd4fac162c4d8dbef982ee544d"
+  integrity sha512-T/0D5XZdSCaNwx1eQJv2CB2GZa198mdinLJws80is/BRwRYWwXJfKMrFmwJmQwob69/myYVqylFfLYp3rYViyg==
 
 type-check@~0.3.2:
   version "0.3.2"

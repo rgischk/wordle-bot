@@ -2,6 +2,9 @@ import {pickRandom} from "./utils/wordlistUtils";
 
 export const MAX_AMOUNT_GUESSES = 6
 export const WORD_LENGTH = 5
+const CHAR_WRONG_CHAR_AND_WRONG_POSITION = "⬜"
+const CHAR_RIGHT_CHAR_WRONG_POSITION = "🟨"
+const CHAR_RIGHT_CHAR_AND_POSITION = "🟩"
 
 export class WordleGame {
     word: string
@@ -37,6 +40,10 @@ export class WordleGame {
 
         this.guesses.push(guess)
 
+        return this.buildGuessResult(this.word, guess)
+    }
+
+    private buildGuessResult(word: string, guess: string): GuessResult {
         const guessResult: GuessResult = [];
         let remainingCharactersInWord = ""
 
@@ -44,10 +51,10 @@ export class WordleGame {
         for (let index = 0; index < guess.length; index++) {
             const character = guess[index]
 
-            if (this.word[index] === character) {
+            if (word[index] === character) {
                 guessResult[index] = Guess.RIGHT_CHAR_AND_POSITION
             } else {
-                remainingCharactersInWord += this.word[index]
+                remainingCharactersInWord += word[index]
             }
         }
 
@@ -63,8 +70,7 @@ export class WordleGame {
                 }
             }
         }
-
-        return guessResult
+        return guessResult;
     }
 
     getGameStatus(): GameStatus {
@@ -75,6 +81,27 @@ export class WordleGame {
             return GameStatus.YOU_LOST
         }
         return GameStatus.RUNNING
+    }
+
+    getResultAsString(): string {
+        return this.guesses.map(guess => {
+            const guessResult = this.buildGuessResult(this.word, guess)
+            let result = ""
+            for (let index = 0; index < WORD_LENGTH; index++) {
+                switch (guessResult[index]) {
+                    case Guess.WRONG_CHAR_AND_WRONG_POSITION:
+                        result += CHAR_WRONG_CHAR_AND_WRONG_POSITION
+                        break
+                    case Guess.RIGHT_CHAR_WRONG_POSITION:
+                        result += CHAR_RIGHT_CHAR_WRONG_POSITION
+                        break
+                    case Guess.RIGHT_CHAR_AND_POSITION:
+                        result += CHAR_RIGHT_CHAR_AND_POSITION
+                        break
+                }
+            }
+            return result
+        }).join("\n")
     }
 }
 
