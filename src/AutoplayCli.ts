@@ -119,7 +119,7 @@ Failed words: wrath, shorn
 Last game:
     Word: hairy
     Guesses: source, yield, hairy
-    <Bot|Game> won!
+    Bot <won|lost>!
  */
 function writeStats(stats: Stats) {
     const maxNumber = stats.totalGames || Number.MAX_SAFE_INTEGER
@@ -141,7 +141,7 @@ function writeStats(stats: Stats) {
     process.stdout.write(`Last game:\n`)
     process.stdout.write(`    Word:    ${stats.lastGame?.word || ""}\n`)
     process.stdout.write(`    Guesses: ${(stats.lastGame?.guesses || []).join(", ")}\n`)
-    process.stdout.write(`    ${stats.lastGame?.gameStatus === GameStatus.YOU_WON ? "Bot" : "Game"} won!\n`)
+    process.stdout.write(`    Bot ${stats.lastGame?.gameStatus === GameStatus.YOU_WON ? "won" : "lost"}!\n`)
 
 }
 
@@ -212,9 +212,9 @@ function updateStats(stats: Stats) {
     process.stdout.write(`${(stats.lastGame?.guesses || []).join(", ")}`)
 
     process.stdout.moveCursor(0, 1); // Move to "Winner"
-    process.stdout.cursorTo(4); // Move to value of "Winner"
+    process.stdout.cursorTo(8); // Move to value of "Winner"
     process.stdout.clearLine(1); // Delete value of "Winner"
-    process.stdout.write(`${stats.lastGame?.gameStatus === GameStatus.YOU_WON ? "Bot" : "Game"} won!`)
+    process.stdout.write(stats.lastGame?.gameStatus === GameStatus.YOU_WON ? "won!" : "lost!")
 
     process.stdout.moveCursor(0, 1); // Move to next line
 }
