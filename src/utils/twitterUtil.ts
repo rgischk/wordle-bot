@@ -1,11 +1,17 @@
 import TwitterApi from "twitter-api-v2";
 
 
-export async function tweet(text: string, debug?: boolean): Promise<boolean> {
+export async function tweet(text: string, debug?: boolean, fake?: boolean): Promise<boolean> {
     const appKey = process.env.WORDLE_BOT_API_KEY
     const appSecret = process.env.WORDLE_BOT_API_KEY_SECRET
     const accessToken = process.env.WORDLE_BOT_ACCESS_TOKEN
     const accessSecret = process.env.WORDLE_BOT_ACCESS_TOKEN_SECRET
+
+    if (fake) {
+        console.log("This would have been the tweet text:")
+        console.log(text)
+        return true
+    }
 
     if (!appKey || !appSecret || !accessToken || !accessSecret) {
         console.log("The necessary environment variables are not set. Tweet cannot be send!")

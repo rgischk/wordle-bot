@@ -3,6 +3,10 @@ const MS_IN_A_DAY = 864e5
 
 export function determineWordOfTheDay(day: Date, wordlist: string[]) {
     let dayOffset = determineDayOffsetFromSeed(day);
+    return determineWordOfTheDayFromDayOffset(dayOffset, wordlist)
+}
+
+export function determineWordOfTheDayFromDayOffset(dayOffset: number, wordlist: string[]) {
     const solutionIndex = dayOffset % wordlist.length
     return wordlist[solutionIndex]
 }

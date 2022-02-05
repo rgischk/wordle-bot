@@ -116,7 +116,7 @@ program
         "./wordlists/short.txt"
     )
     .action((options) => {
-        return wordOfTheDayCli(options.wordlist, options.words, options.date)
+        return wordOfTheDayCli(options.wordlist, options.words, parseOptionalInt(options.date))
     })
 
 
@@ -183,8 +183,28 @@ program
         "-d, --debug",
         "Log details while executing the command."
     )
+    .option(
+        "--fake",
+        "Will only fake send tweets."
+    )
+    .option(
+        "--date <number>",
+        "The date of the day to tweet in ms. Will use today be default."
+    )
+    .option(
+        "--day <number>",
+        "The day to tweet. Will use today be default."
+    )
+    .option(
+        "--startDate <number>",
+        "The date of the day to start generating tweets for in ms. Will only tweet one wordle by default."
+    )
+    .option(
+        "--startDay <number>",
+        "The day to start generating tweets. Will only tweet one wordle by default."
+    )
     .action((options) => {
-        return twitterCli(options.debug)
+        return twitterCli(options.debug, options.fake, parseOptionalInt(options.date), parseOptionalInt(options.day), parseOptionalInt(options.startDate), parseOptionalInt(options.startDay))
     })
 
 program
@@ -195,3 +215,11 @@ program
     })
 
 program.parseAsync(process.argv)
+
+function parseOptionalInt(string?: string): number | undefined {
+    if (string) {
+        return parseInt(string)
+    } else {
+        return undefined
+    }
+}
