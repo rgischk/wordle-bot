@@ -32,7 +32,7 @@ export async function twitterCli(debug?: boolean, fake?: boolean, date?: number,
             guessResult = game.guess(guess)
         }
 
-        const tries = game.guesses.length
+        const tries = game.getGameStatus() === GameStatus.YOU_WON ? game.guesses.length : "X"
         const resultAsString = game.getResultAsString()
         const tweetText = `Wordle ${i} ${tries}/6\n\n${resultAsString}`
 
