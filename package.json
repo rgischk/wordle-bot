@@ -2,7 +2,7 @@
   "name": "wordle-bot",
   "version": "1.0.0",
   "description": "A bot for solving wordle puzzles",
-  "author": "Roman Gischkowski <rgischk@gmail.com>",
+  "author": "Roman Gischkowski <dev@rgischk.de>",
   "license": "MIT",
   "scripts": {
     "cli": "ts-node src/cli.ts",
